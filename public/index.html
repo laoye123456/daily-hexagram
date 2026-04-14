@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日一卦 · Daily Hexagram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ink wash background effect -->
+  <div class="ink-bg"></div>
+  <div class="ink-ripple"></div>
+  
+  <!-- Floating 八卦 decorations -->
+  <div class="gua-decoration gua-1">☰</div>
+  <div class="gua-decoration gua-2">☱</div>
+  <div class="gua-decoration gua-3">☲</div>
+  <div class="gua-decoration gua-4">☳</div>
+  <div class="gua-decoration gua-5">☴</div>
+  <div class="gua-decoration gua-6">☵</div>
+  <div class="gua-decoration gua-7">☶</div>
+  <div class="gua-decoration gua-8">☷</div>
+  
+  <!-- Main container -->
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-ornament">☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷ ☰</div>
+      <h1 class="title">
+        <span class="title-cn">每日一卦</span>
+        <span class="title-en">Daily Hexagram</span>
+      </h1>
+      <p class="subtitle">以《易经》之智慧，窥天命之玄机</p>
+      <div class="header-ornament">☷ ☶ ☵ ☴ ☳ ☲ ☱ ☰ ☷</div>
+    </header>
+
+    <!-- Main form card -->
+    <div class="form-card">
+      <div class="card-border"></div>
+      <div class="card-inner">
+        <h2 class="section-title">
+          <span class="title-icon">☰</span>
+          求测信息
+          <span class="title-icon">☷</span>
+        </h2>
+
+        <form id="divinationForm" class="form-grid">
+          <!-- 姓名 -->
+          <div class="form-group">
+            <label for="name">
+              <span class="label-icon">✦</span>
+              姓名
+              <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="请输入您的姓名"
+                required
+                autocomplete="name"
+              >
+              <div class="input-glow"></div>
+            </div>
+          </div>
+
+          <!-- 出生日期 -->
+          <div class="form-group">
+            <label for="birthDate">
+              <span class="label-icon">✦</span>
+              出生日期
+              <span class="required">*</span>
+            </label>
+            <div class="input-wrapper">
+              <input 
+                type="date" 
+                id="birthDate" 
+                name="birthDate" 
+                required
+              >
+              <div class="input-glow"></div>
+            </div>
+          </div>
+
+          <!-- 手机号 -->
+          <div class="form-group">
+            <label for="phone">
+              <span class="label-icon">✦</span>
+              手机号
+            </label>
+            <div class="input-wrapper">
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                placeholder="（可选）用于接收占卜结果"
+                autocomplete="tel"
+              >
+              <div class="input-glow"></div>
+            </div>
+          </div>
+
+          <!-- 出发地 -->
+          <div class="form-group">
+            <label for="departure">
+              <span class="label-icon">✦</span>
+              出发地
+            </label>
+            <div class="input-wrapper">
+              <input 
+                type="text" 
+                id="departure" 
+                name="departure" 
+                placeholder="例：北京、上海"
+              >
+              <div class="input-glow"></div>
+            </div>
+          </div>
+
+          <!-- 目的地 -->
+          <div class="form-group">
+            <label for="destination">
+              <span class="label-icon">✦</span>
+              目的地
+            </label>
+            <div class="input-wrapper">
+              <input 
+                type="text" 
+                id="destination" 
+                name="destination" 
+                placeholder="例：杭州、广州"
+              >
+              <div class="input-glow"></div>
+            </div>
+          </div>
+
+          <!-- 出发日期 -->
+          <div class="form-group form-group-full">
+            <label for="departureTime">
+              <span class="label-icon">✦</span>
+              出发日期
+            </label>
+            <div class="input-wrapper">
+              <input 
+                type="date" 
+                id="departureTime" 
+                name="departureTime" 
+              >
+              <div class="input-glow"></div>
+            </div>
+          </div>
+
+          <!-- Submit button -->
+          <div class="form-group-full submit-wrapper">
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <span class="btn-text">起 卦</span>
+              <span class="btn-icon">䷎</span>
+              <div class="btn-particles"></div>
+            </button>
+            <p class="submit-hint">心诚则灵，一日一卦</p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Result display -->
+    <div class="result-card" id="resultCard">
+      <div class="card-border"></div>
+      <div class="card-inner">
+        <h2 class="section-title">
+          <span class="title-icon">䷀</span>
+          卦象解读
+          <span class="title-icon">䷁</span>
+        </h2>
+        
+        <div class="result-content" id="resultContent">
+          <!-- Result will be inserted here -->
+        </div>
+        
+        <button class="retry-btn" id="retryBtn">
+          <span>再 占 一 卦</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading state -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-content">
+        <div class="loading-gua">
+          <span>䷎</span>
+          <span>䷍</span>
+          <span>䷌</span>
+          <span>䷍</span>
+          <span>䷎</span>
+        </div>
+        <p class="loading-text">易道玄机·正在起卦...</p>
+        <p class="loading-hint">天机不可泄露，请稍候</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>☰ 易有太极，是生两仪，两仪生四象，四象生八卦 ☷</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
