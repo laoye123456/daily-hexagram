@@ -1,0 +1,20 @@
+{
+  "name": "daily-hexagram",
+  "version": "1.0.0",
+  "description": "每日一卦 - AI驱动的易经卦象解读服务",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "keywords": [
+    "易经",
+    "六爻",
+    "AI",
+    "deepseek"
+  ],
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
